@@ -6,8 +6,7 @@ RUN         /usr/bin/apt-get update \
             && DEBIAN_FRONTEND=noninteractive /usr/bin/apt-get full-upgrade -y -q --force-yes \
             && /usr/bin/apt-get update \
             && /usr/bin/apt-get install ffmpeg iproute2 git sqlite3 libsqlite3-dev python3 python3-dev ca-certificates dnsutils tzdata zip tar curl build-essential -y -q --force-yes \
-            && /usr/local/bin/npm update \
-            && /usr/local/bin/npm -g update \
+            && /usr/local/bin/npm install -g npm \
             && useradd -m -d /home/container container
 
 USER        container
