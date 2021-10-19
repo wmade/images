@@ -26,21 +26,27 @@
 TZ=${TZ:-UTC}
 export TZ
 
-# Set environment variable that holds the Internal Docker IP
-INTERNAL_IP=$(ip route get 1 | awk '{print $NF;exit}')
-export INTERNAL_IP
-
 # Switch to the container's working directory
 cd /home/container || exit 1
 
+# Set environment variable that holds the Internal Docker IP
+export INTERNAL_IP=`ip route get 1 | awk '{print $NF;exit}'`
+
 # Print Go version
 printf "\033[1m\033[33mcontainer@pterodactyl~ \033[0mnode -v\n"
-node -v
+printf " ▄▄    ▄ ▄▄▄▄▄▄▄ ▄▄▄▄▄▄  ▄▄▄▄▄▄▄          ▄▄▄ ▄▄▄▄▄▄▄ "
+printf "█  █  █ █       █      ██       █        █   █       █"
+printf "█   █▄█ █   ▄   █  ▄    █    ▄▄▄█        █   █  ▄▄▄▄▄█"
+printf "█       █  █ █  █ █ █   █   █▄▄▄      ▄  █   █ █▄▄▄▄▄ "
+printf "█  ▄    █  █▄█  █ █▄█   █    ▄▄▄█▄▄▄ █ █▄█   █▄▄▄▄▄  █"
+printf "█ █ █   █       █       █   █▄▄▄█   ██       █▄▄▄▄▄█ █"
+printf "█▄█  █▄▄█▄▄▄▄▄▄▄█▄▄▄▄▄▄██▄▄▄▄▄▄▄█▄▄▄██▄▄▄▄▄▄▄█▄▄▄▄▄▄▄█"
+echo .
+echo -e "Version : $(node -v)"
 
 # Replace variables in the startup command
-PARSED=$(echo "${STARTUP}" | sed -e 's/{{/${/g' -e 's/}}/}/g' | eval echo "$(cat -)")
-printf "\033[1m\033[33mcontainer@pterodactyl~ \033[0m%s\n" "$PARSED"
+MODIFIED_STARTUP=$(echo -e ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')
+echo ":/home/container$ ${MODIFIED_STARTUP}"
 
-# Run the startup command
-# shellcheck disable=SC2086
-exec env ${PARSED}
+# Run the Server
+eval ${MODIFIED_STARTUP}
