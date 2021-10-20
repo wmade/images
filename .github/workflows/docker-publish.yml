@@ -89,5 +89,5 @@ jobs:
           push: true
           tags: |
             ghcr.io/wmade/images:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
-            quay.io/wmade/pterodactyl:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
+#             quay.io/wmade/pterodactyl:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
 # ${{ secrets.REGISTRY }}/pterodactyl:${{ matrix.image.PREFIX }}${{ matrix.image.image }}${{ matrix.image.SUFFIX }}
