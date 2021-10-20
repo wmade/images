@@ -17,8 +17,12 @@ jobs:
       fail-fast: false
       matrix:
         tag:
+          - 12
+          - 14
           - 16
           - 17
+          - Current
+          - LTS
     
     steps:
       - name: Check out the repo
