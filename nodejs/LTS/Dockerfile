@@ -9,10 +9,10 @@ RUN         /usr/bin/apt-get update \
             && curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
             && /usr/bin/apt-get install nodejs -y -q --force-yes \
             && /usr/bin/npm install -g npm \
-			      && /bin/ln /usr/bin/corepack /usr/local/bin/corepack \
-			      && /bin/ln /usr/bin/node /usr/local/bin/node \
-			      && /bin/ln /usr/bin/npm /usr/local/bin/npm \
-			      && /bin/ln /usr/bin/npx /usr/local/bin/npx \
+			&& /bin/ln /usr/bin/corepack /usr/local/bin/corepack \
+			&& /bin/ln /usr/bin/node /usr/local/bin/node \
+			&& /bin/ln /usr/bin/npm /usr/local/bin/npm \
+			&& /bin/ln /usr/bin/npx /usr/local/bin/npx \
             && useradd -m -d /home/container container
 
 USER        container
