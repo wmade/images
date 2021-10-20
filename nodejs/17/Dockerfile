@@ -8,6 +8,7 @@ RUN         /usr/bin/apt-get update \
             && /usr/bin/apt-get install ffmpeg iproute2 git sqlite3 libsqlite3-dev python3 python3-dev ca-certificates dnsutils tzdata zip tar curl build-essential -y -q --force-yes \
             && curl -fsSL https://deb.nodesource.com/setup_17.x | bash - \
             && /usr/bin/apt-get install nodejs -y -q --force-yes \
+			&& /usr/bin/whereis npm \
             && /usr/local/bin/npm install -g npm \
             && useradd -m -d /home/container container
 
