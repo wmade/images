@@ -18,6 +18,7 @@ jobs:
       matrix:
         tag:
           - 16
+          - 17
     
     steps:
       - name: Check out the repo
