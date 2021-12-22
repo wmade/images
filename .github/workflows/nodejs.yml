@@ -22,6 +22,7 @@ jobs:
           - 16
           - 17
           - Current
+          - Dev
           - LTS
     
     steps:
