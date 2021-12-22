@@ -25,7 +25,6 @@ jobs:
           - 15
           - 16
           - 17
-          - Dev
           - Current
           - LTS
     
